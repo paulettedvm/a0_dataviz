@@ -10,20 +10,23 @@ function setup() {
 
 function draw() {
   background(0); 
-  
+
   let hr_col = color(252, 147, 26);  
-  xy_min = draw_circles(hr_total, hour(), hr_col, 25, 25);
+  xy_min = draw_circles(hr_total, hour(), hr_col, 25, 25); // hard coded x,y coordinates here
 
   let min_col = color(24, 157, 194);
   let xy_sec = draw_circles(min_total, minute(), min_col, xy_min[0], xy_min[1]); 
 
   let sec_col = color(252, 232, 26); 
   draw_circles(sec_total, second(), sec_col, xy_sec[0], xy_sec[1]); 
+
+  // debug text
+  //text(hour() + ':' + minute() + ':' + second(), 400, 500);
   
 }
 
 function draw_circles(total, curr, color, x, y) {
-  for(let i = 1; i <= total; i++) {
+  for(let i = 1; i < total; i++) {
 
     if (i <= curr) {
       fill(color);
