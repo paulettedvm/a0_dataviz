@@ -4,6 +4,8 @@ let sec_total = 60,
     min_total = 60, 
     hr_total = 24; 
 
+
+
 function setup() { 
   createCanvas(800, 600);
 }
@@ -11,14 +13,18 @@ function setup() {
 function draw() {
   background(0); 
 
+  let curr_sec = second(), 
+  curr_min = minute(), 
+  curr_hr = hour();
+
   let hr_col = color(252, 147, 26);  
-  xy_min = draw_circles(hr_total, hour(), hr_col, 25, 25); // hard coded x,y coordinates here
+  xy_min = draw_circles(hr_total, curr_hr, hr_col, 25, 25); // hard coded x,y coordinates here
 
   let min_col = color(24, 157, 194);
-  let xy_sec = draw_circles(min_total, minute(), min_col, xy_min[0], xy_min[1]); 
+  let xy_sec = draw_circles(min_total, curr_min, min_col, xy_min[0], xy_min[1]); 
 
-  let sec_col = color(252, 232, 26); 
-  draw_circles(sec_total, second(), sec_col, xy_sec[0], xy_sec[1]); 
+  let sec_col = color(151, 204, 4); 
+  draw_circles(sec_total, curr_sec, sec_col, xy_sec[0], xy_sec[1]); 
 
   // debug text
   //text(hour() + ':' + minute() + ':' + second(), 400, 500);
